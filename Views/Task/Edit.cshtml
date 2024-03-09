@@ -1,0 +1,82 @@
+@{
+ViewData["Title"] = "Edit Task";
+}
+
+<div class="container card p-4">
+    <div class="text-right">
+        <div class="row">
+            <div class="col-md-8">
+                <p class="fs-4 fw-bold">Edit Task</p>
+            </div>
+            <div class="col-md-4">
+                <div class="create-task-container text-md-end mt-2">
+                    <button id="back-btn"
+                        class="btn btn-primary text-capitalize"><i class="fas fa-angle-left me-2"></i>Back</button>
+                    <script>
+                        $("#back-btn").click(function () {
+                            window.history.back();
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="container create-task-container">
+            <form action="/Task/Update"
+                method="POST">
+                <input type="hidden"
+                    name="Id"
+                    value="@ViewBag.task.Id" />
+
+                <!-- Name input -->
+                <div data-mdb-input-init
+                    class="form-outline mb-4">
+                    <input type="text"
+                        id="title"
+                        class="form-control"
+                        value="@ViewBag.task.Title"
+                        name="Title" />
+                    <label class="form-label"
+                        for="title">Title</label>
+                </div>
+
+                <!-- Message input -->
+                <div data-mdb-input-init
+                    class="form-outline mb-4">
+                    <textarea class="form-control"
+                        id="Description"
+                        name="Description"
+                        rows="4">@ViewBag.task.Description</textarea>
+                    <label class="form-label"
+                        for="Description">Description</label>
+                </div>
+
+                <div class="form-check d-flex justify-content-start mb-4 p-0">
+                    @if(ViewBag.task.IsComplete)
+                    {
+                    <input class="form-check-input me-2"
+                        type="checkbox"
+                        value="@ViewBag.task.IsComplete"
+                        name="IsComplete"
+                        value="true"
+                        checked />
+                    }else
+                    {
+                    <input class="form-check-input me-2"
+                        type="checkbox"
+                        value="@ViewBag.task.IsComplete"
+                        name="IsComplete"
+                        value="true" />
+                    }
+                    <label class="form-check-label"
+                        for="isComplete">
+                        Is Completed?
+                    </label>
+                </div>
+                <!-- Submit button -->
+                <button data-mdb-ripple-init
+                    class="btn btn-primary btn-block mb-4"
+                    type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+</div>

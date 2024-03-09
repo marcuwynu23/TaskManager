@@ -1,0 +1,101 @@
+﻿@{
+ViewData["Title"] = "Task List";
+}
+
+<div class="card p-4 mx-5">
+    <div class="row">
+        <div class="col-md-8">
+            <p class="fs-4 fw-bold float-start">Task List</p>
+        </div>
+        <div class="col-md-4">
+            <div class="create-task-container text-md-end mt-2">
+                <a asp-area=""
+                    asp-controller="Task"
+                    asp-action="Create"
+                    class="btn btn-primary text-capitalize"><i class="fas fa-plus me-2"></i>Create New Task</a>
+            </div>
+        </div>
+    </div>
+    <div class="text-right">
+        <div class="tasklist-container mt-2"
+            style="overflow-x: auto; max-height: 500px;">
+            <table class="table table-dark  table-fixed">
+                <thead>
+                    <tr>
+                        <th class="fs-5 fw-bold">Title</th>
+                        <th class="fs-5  fw-bold">Short Description</th>
+                        <th class="fs-5 text-end fw-bold">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewBag.Tasks.Count == 0)
+                    {
+                    <tr>
+                        <td colspan="2"
+                            class="text-center">
+                            <i class="fas fa-exclamation-triangle fs-1 text-danger"></i>
+                            <p class="text-danger fs-4">No tasks found</p>
+                        </td>
+                    </tr>
+                    }
+                    else
+                    {
+                    <!-- list from ViewBag.Tasks-->
+                    @foreach (var task in ViewBag.Tasks)
+                    {
+                    <tr>
+                        <td>
+                            <p class="fw-light">
+                                @if (!task.IsComplete)
+                                {
+                                <i class="fas fa-calendar-minus me-1 text-danger"></i>@task.Title
+                                }
+                                else
+                                {
+                                <i class="fas fa-calendar-check me-1 text-success"></i>@task.Title
+                                }
+                            </p>
+                        </td>
+                        <td>
+                            <p class="fw-light">
+                                @if (task.Description.Length > 50)
+                                {
+                                @task.Description.Substring(0, 50)
+                                }
+                                else
+                                {
+                                @task.Description
+                                } ...
+                            </p>
+                        </td>
+                        <td class="text-end">
+                            <a asp-area=""
+                                asp-controller="Task"
+                                asp-action="Show"
+                                asp-route-id="@task.Id"
+                                class="btn btn-sm btn-primary text-capitalize">
+                                <i class="fas fa-eye me-1"></i>View
+                            </a>
+                            <a asp-area=""
+                                asp-controller="Task"
+                                asp-action="Edit"
+                                asp-route-id="@task.Id"
+                                class="btn btn-sm btn-warning text-capitalize">
+                                <i class="fas fa-edit me-1"></i>Edit
+                            </a>
+                            <a asp-area=""
+                                asp-controller="Task"
+                                asp-action="Delete"
+                                asp-route-id="@task.Id"
+                                class="btn btn-sm btn-danger text-capitalize">
+                                <i class="fas fa-trash-alt me-1"></i>Delete
+                            </a>
+                        </td>
+                    </tr>
+                    }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

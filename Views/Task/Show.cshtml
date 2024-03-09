@@ -1,0 +1,30 @@
+@{
+ViewData["Title"] = "Show Task";
+}
+
+<div class="container card p-4">
+	<div class="text-right">
+		<div class="row">
+			<div class="col-md-8">
+				<p class="fs-4 fw-bold">@ViewBag.task.Title</p>
+			</div>
+			<div class="col-md-4">
+				<div class="create-task-container text-md-end mt-2">
+					<button id="back-btn"
+						class="btn btn-primary text-capitalize"><i class="fas fa-angle-left me-2"></i>Back</button>
+					<script>
+						$("#back-btn").click(function () {
+							window.history.back();
+						});
+					</script>
+				</div>
+			</div>
+		</div>
+		<div class=" create-task-container">
+			<div class="mb-4">
+				<label class="form-label">Description</label>
+				<div class="container">@ViewBag.task.Description</div>
+			</div>
+		</div>
+	</div>
+</div>

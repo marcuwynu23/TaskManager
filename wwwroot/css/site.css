@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap');
+
+
+* {
+  color: #fff;
+  font-family: "Assistant", sans-serif;
+}
+
+html {
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e57362 !important;
+}
+
+.tasklist-container::-webkit-scrollbar {
+  width: 12px;
+  /* Width of the scrollbar */
+  border-radius: 8px;
+  /* Round corners */
+}
+
+.tasklist-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  /* Color of the scrollbar thumb */
+  border-radius: 8px;
+  /* Round corners */
+}
+
+.tasklist-container::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1);
+  /* Color of the scrollbar track */
+  border-radius: 8px;
+  /* Round corners */
+}
+
+
+.table-dark th,
+.table-dark td,
+.table-dark thead th {
+  background-color: #424242 !important;
+}
