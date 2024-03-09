@@ -1,4 +1,12 @@
-# Task Manager
+<div align="center">
+
+# Task Manager 
+
+[![GitHub license](https://img.shields.io/github/license/marcuwynu23/TaskManager)](https://github.com/marcuwynu23/TaskManager/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/marcuwynu23/TaskManager)](https://github.com/marcuwynu23/TaskManager/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/marcuwynu23/TaskManager)](https://github.com/marcuwynu23/TaskManager/issues)
+
+</div>
 
 Task Manager is a simple web application for managing tasks. It allows users to create, view, edit, and delete tasks.
 
